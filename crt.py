@@ -12,7 +12,6 @@ def get_arg():
         text += "\tpython3 crt.py google.com"
         print(text)
         exit(0)
-    
 
 def req(domain):
     url = "https://crt.sh/?output=json&q=" + domain.strip()
@@ -39,8 +38,7 @@ def unique(subs):
 
 def final(filtered):
     print(f"[+] Found {len(filtered)} Subdomains:")
-    [print(f"\t{f.strip()}") for f in filtered]
-
+    [print(f.strip()) for f in filtered]
 
 if __name__ == "__main__":
     urllib3.disable_warnings()
@@ -49,4 +47,3 @@ if __name__ == "__main__":
     subs = extract_sub(json)
     filtered = unique(subs)
     final(filtered)
-
